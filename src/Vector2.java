@@ -14,7 +14,7 @@ public class Vector2 extends MathObject implements Cloneable {
         this.y = y;
     }
 
-    public int magnitude() {
+    public double magnitude() {
         return Math.sqrt(x * x + y * y);
     }
 

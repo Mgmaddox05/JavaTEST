@@ -35,7 +35,7 @@ public class App {
         }
 
         // Calculate and display the magnitude of Vector v1
-        int magnitudeV1 = v1.magnitude();
+        double magnitudeV1 = v1.magnitude();
         System.out.println("Magnitude of v1: " + magnitudeV1);
 
         // Add Vector v1 and v2
