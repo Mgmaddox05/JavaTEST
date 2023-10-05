@@ -1,30 +1,44 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
-        Vector2 v1 = new Vector2(3, 4);
-        Vector2 v2 = new Vector2(1, 2, "A 2D vector");
+        Map<String, MathObject> mathObjectMap = new HashMap<>();
+        
+        Vector2 v1 = new Vector2(3, 4, "Vector A");
+        Vector2 v2 = new Vector2(1, 2, "Vector B");
+        Vector2 v3 = new Vector2(-2, 6, "Vector C");
 
-        // Clone v1
-        Vector2 v1Clone = v1.clone();
+        mathObjectMap.put(v1.getDescription(), v1);
+        mathObjectMap.put(v2.getDescription(), v2);
+        mathObjectMap.put(v3.getDescription(), v3);
 
-        // Check if the cloned object is equal to the original
-        boolean areEqual = v1.isEqual(v1Clone);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Original Vector: " + v1);
-        System.out.println("Cloned Vector: " + v1Clone);
-        System.out.println("Are they equal? " + areEqual);
+        
+        System.out.print("Enter a description to retrieve a Vector2: ");
+        String inputDescription = scanner.nextLine();
 
-        // Modify the cloned vector using setter methods and check again
-        v1Clone.setDescription("Modified clone");
-        v1Clone.setX(5);
+       
+        MathObject retrievedObject = mathObjectMap.get(inputDescription);
+        if (retrievedObject instanceof Vector2) {
+            System.out.println("Retrieved Vector2: " + retrievedObject);
+        } else {
+            System.out.println("No Vector2 found with the specified description.");
+        }
 
-        System.out.println("Modified Cloned Vector: " + v1Clone);
-        System.out.println("Original Vector after modification of clone: " + v1);
+        
+        System.out.println("All objects in the HashMap:");
+        for (MathObject mathObject : mathObjectMap.values()) {
+            System.out.println(mathObject);
+        }
 
-        // Calculate and print the magnitude of v2
-        int magnitudeV2 = v2.magnitude();
-        System.out.println("Magnitude of v2: " + magnitudeV2);
+        // Calculate and display the magnitude of Vector v1
+        double magnitudeV1 = v1.magnitude();
+        System.out.println("Magnitude of v1: " + magnitudeV1);
 
-        // Add v1 and v2
+        // Add Vector v1 and v2
         Vector2 sumVector = v1.add(v2);
         System.out.println("Sum of v1 and v2: " + sumVector);
 
@@ -39,5 +53,7 @@ public class App {
         // Get the dimension of v2
         int dimensionV2 = v2.getDimension();
         System.out.println("Dimension of v2: " + dimensionV2);
+
+        scanner.close();
     }
 }
