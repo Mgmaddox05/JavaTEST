@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Map<String, MathObject> mathObjectMap = new HashMap<>();
-        
+
         Vector2 v1 = new Vector2(3, 4, "Vector A");
         Vector2 v2 = new Vector2(1, 2, "Vector B");
         Vector2 v3 = new Vector2(-2, 6, "Vector C");
@@ -35,7 +35,7 @@ public class App {
         }
 
         // Calculate and display the magnitude of Vector v1
-        double magnitudeV1 = v1.magnitude();
+        int magnitudeV1 = v1.magnitude();
         System.out.println("Magnitude of v1: " + magnitudeV1);
 
         // Add Vector v1 and v2
